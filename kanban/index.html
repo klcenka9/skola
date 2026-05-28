@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Kanban Board</h1>
+            <button class="btn-clear" onclick="clearAllTasks()">Vymazat vše</button>
+        </header>
+
+        <div class="board">
+            <!-- To Do Column -->
+            <div class="column">
+                <div class="column-header">
+                    <h2>📝 To Do</h2>
+                    <span class="task-count" id="todo-count">0</span>
+                </div>
+                <div class="tasks-container" id="todo-column" ondrop="handleDrop(event, 'todo')" ondragover="handleDragOver(event)">
+                    <!-- Tasks будут добавлены здесь -->
+                </div>
+                <div class="add-task">
+                    <input type="text" id="todo-input" placeholder="Přidat nový úkol..." onkeypress="handleKeyPress(event, 'todo')">
+                    <button onclick="addTask('todo')">+</button>
+                </div>
+            </div>
+
+            <!-- Doing Column -->
+            <div class="column">
+                <div class="column-header">
+                    <h2>⚙️ Doing</h2>
+                    <span class="task-count" id="doing-count">0</span>
+                </div>
+                <div class="tasks-container" id="doing-column" ondrop="handleDrop(event, 'doing')" ondragover="handleDragOver(event)">
+                    <!-- Tasks будут добавлены здесь -->
+                </div>
+                <div class="add-task">
+                    <input type="text" id="doing-input" placeholder="Přidat nový úkol..." onkeypress="handleKeyPress(event, 'doing')">
+                    <button onclick="addTask('doing')">+</button>
+                </div>
+            </div>
+
+            <!-- Done Column -->
+            <div class="column">
+                <div class="column-header">
+                    <h2>✅ Done</h2>
+                    <span class="task-count" id="done-count">0</span>
+                </div>
+                <div class="tasks-container" id="done-column" ondrop="handleDrop(event, 'done')" ondragover="handleDragOver(event)">
+                    <!-- Tasks будут добавлены здесь -->
+                </div>
+                <div class="add-task">
+                    <input type="text" id="done-input" placeholder="Přidat nový úkol..." onkeypress="handleKeyPress(event, 'done')">
+                    <button onclick="addTask('done')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
